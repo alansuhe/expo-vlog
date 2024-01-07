@@ -1,12 +1,18 @@
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import EditScreenInfo from '@components/EditScreenInfo';
+import { Text, View } from '@components/Themed';
 
 export default function TabOneScreen() {
+
+  console.log(process.env.EXPO_PUBLIC_OMDB_BASE_URL)
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
+      
+      <Button onPress={() => console.log('--->')} title='test 123' />
+
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <EditScreenInfo path="app/(tabs)/index.tsx" />
     </View>
