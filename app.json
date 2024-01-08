@@ -16,13 +16,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "me.suhe.expovlog"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "me.suhe.expovlog"
     },
     "web": {
       "bundler": "metro",
@@ -36,5 +38,9 @@
       "typedRoutes": true,
       "tsconfigPaths": true
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-5387978978433983~6347791664",
+    "ios_app_id": "ca-app-pub-5387978978433983~5485054568"
   }
 }
