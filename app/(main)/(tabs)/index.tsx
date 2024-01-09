@@ -1,50 +1,69 @@
-import { Button, Platform, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '@components/EditScreenInfo';
-import { Text, View } from '@components/Themed';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+import React, { useLayoutEffect } from 'react';
+import {
+  Platform,
+  Pressable,
+  SafeAreaView,
+  Text,
+  View,
+} from 'react-native';
+
+import { useStyle, cm, bcm, mcm, scm } from '@/style'
+import { DrawerActions, ParamListBase } from '@react-navigation/native';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
 import c from '@constants/Constants'
-
 const AD_BANNER_ID = Platform.select({
   ios: c.ADMOB_IDs.ios_banner,
   android: c.ADMOB_IDs.android_banner
 });
-const AD_ID = __DEV__ ? TestIds.BANNER : AD_BANNER_ID;
+// const AD_ID = __DEV__ ? TestIds : AD_BANNER_ID
 
-export default function TabOneScreen() {
+export default function HomeScreen() {
 
-  console.log(process.env.EXPO_PUBLIC_OMDB_BASE_URL)
+  const { s, sc, Colors: { emphasis } } = useStyle()
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-
+    <SafeAreaView style={[s.container, s.centered]}>
       <BannerAd
-        unitId={AD_ID!}
+        unitId={AD_BANNER_ID!}
         size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
       />
-      <Button onPress={() => console.log('--->')} title='test 123' />
 
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      {/* <EditScreenInfo path="app/(tabs)/index.tsx" /> */}
-    </View>
+      <View style={[sc.card, s.shadow]}>
+        <Text style={s.titleText}>Home</Text>
+        <Text style={s.subTitleText}>Sub title</Text>
+
+        <Text style={s.normalText}>normal blah .....</Text>
+        <Text style={s.subText}>sub text</Text>
+
+      </View>
+
+      <>
+        <Pressable style={sc.boxAct}>
+          <Text style={s.normalText}>act</Text>
+        </Pressable>
+        <Pressable style={sc.boxLink}>
+          <Text style={s.normalText}>link</Text>
+        </Pressable>
+        <View style={s.round}>
+          <Text>R</Text>
+        </View>
+        <View style={sc.roundAct}>
+          <Text>A</Text>
+        </View>
+
+        <Text style={s.normalText}>normal blah .....<Text style={{ color: emphasis }}>Emphasis highLight</Text></Text>
+        <Text style={s.subText}>sub text</Text>
+      </>
+
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '@components/EditScreenInfo';
+// import EditScreenInfo from '@components/EditScreenInfo';
 import { Text, View } from '@components/Themed';
 
-export default function TabTwoScreen() {
+export default function LibraryScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>

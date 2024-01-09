@@ -1,11 +1,12 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
+import { SplashScreen  } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+// import { useColorScheme } from 'react-native';
 import { Drawer } from 'expo-router/drawer';
 import Settings from './settings';
+import { useStyle } from '@/style';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -45,16 +46,27 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const {isDark, NavColors} = useStyle();
+
+  const navTheme = isDark ? DarkTheme : DefaultTheme
+  const NavTheme = {
+    ...navTheme,
+    colors: {
+      ...navTheme.colors,
+      ...NavColors
+    }
+  }
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={NavTheme}>
       <Drawer
-    //   initialRouteName='home'
-        drawerContent={(props) => <Settings {...props} />}>
+      // initialRouteName='(main)'
+        // drawerContent={(props) => <Settings {...props} />}
+        >
         <Drawer.Screen
           name="(main)" // This is the name of the page and must match the url from root
           options={{
-            drawerLabel: 'home',
+            drawerLabel: '(main)',
             title: 'drawer',
           }}
         />

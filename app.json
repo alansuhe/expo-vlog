@@ -37,6 +37,14 @@
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a44eafd9-911a-46b9-a470-70029bbbbae9"
+      }
     }
   },
   "react-native-google-mobile-ads": {

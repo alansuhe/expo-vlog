@@ -4,11 +4,14 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": [
+        "app/core/*"
+      ],
       "@components/*": [
-        "components/*"
+        "app/components/*"
       ],
       "@constants/*": [
-        "constants/*"
+        "app/constants/*"
       ],
       "@assets/*": [
         "assets/*"

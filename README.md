@@ -15,6 +15,9 @@ npx expo start --clear
 // 在安装配置了react-native-google-mobile-ads后，启动命令：
 npx expo run:ios
 
+// prebuild后，清除缓存启动命令：
+<!-- npx expo run --clean -->
+
 ```
 
 ## Debug
@@ -82,3 +85,23 @@ npx expo prebuild --clean
 
 ```
 
+- 找不到默认页面///的问题
+```
+// 来自expo官网
+// 不能随便改index的名字
+
+When a file is created in the app directory, it automatically becomes a route in the app. For example, the following files will create the following routes:
+
+app/index.js matches /
+app/home.js matches /home
+app/settings/index.js matches /settings
+app/[user].js matches dynamic paths like /expo or /evanbacon
+
+```
+
+- 启动时找不到ios模拟器问题
+```
+// 用xcode打开运行一次，就恢复了（已经prebuild的情况）
+
+
+```
